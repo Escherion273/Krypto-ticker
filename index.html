@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krypto Ticker (BTC/USD & XRP/EUR)</title>
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <style>
+    body{margin:0;font-family:sans-serif;background:#0f172a;color:#e5e7eb;}
+    header{background:#111827;padding:1em;position:sticky;top:0;}
+    h1{margin:0;font-size:1.2em;}
+    main{display:grid;grid-template-columns:1fr 1fr;gap:1em;padding:1em;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+    .card{background:#111827;padding:1em;border-radius:12px;}
+    .price{font-size:2em;font-weight:bold;}
+    .label{color:#9ca3af;font-size:0.9em;}
+    button{padding:0.5em 1em;border:none;border-radius:8px;cursor:pointer;background:#2563eb;color:#fff;}
+  </style>
+</head>
+<body>
+  <header><h1>Krypto Ticker · BTC/USD & XRP/EUR</h1></header>
+  <main>
+    <section class="card">
+      <div class="label">Bitcoin</div>
+      <div class="price" id="btcPrice">–</div>
+      <div class="label">BTC/USD</div>
+    </section>
+    <section class="card">
+      <div class="label">XRP</div>
+      <div class="price" id="xrpPrice">–</div>
+      <div class="label">XRP/EUR</div>
+    </section>
+    <section class="card">
+      <button id="refresh">Jetzt aktualisieren</button>
+      <div class="label">Letzte Aktualisierung: <span id="lastUpdate">–</span></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
